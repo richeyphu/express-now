@@ -11,7 +11,7 @@ Get a quick current status overview of an Express server at a glance.
 import express from 'express';
 const app = express();
 
-// Import middleware
+// Import the middleware
 import serverStatus from 'express-now';
 
 // Use this middleware before other routes
