@@ -1,3 +1,4 @@
+[![NPM version](https://www.npmjs.com/package/express-now.svg)](https://www.npmjs.com/package/express-now)
 # express-now
 
 Get current status overview of an Express server
