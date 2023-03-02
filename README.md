@@ -1,6 +1,7 @@
+[![NPM version](https://img.shields.io/npm/v/express-now.svg)](https://www.npmjs.com/package/express-now)
 # express-now
 
-Get current status overview of an Express server
+Get current status overview of an Express server.
 
 ## Usage
 
