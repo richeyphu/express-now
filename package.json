@@ -25,6 +25,20 @@
   "repository": "github:richeyphu/express-now",
   "author": "phuritd",
   "license": "MIT",
+  "keywords": [
+    "express",
+    "expressjs",
+    "stats",
+    "status",
+    "uptime",
+    "version",
+    "node",
+    "api",
+    "monitoring",
+    "middleware",
+    "javascript",
+    "typescript"
+  ],
   "dependencies": {
     "express": "^4.18.2"
   },
