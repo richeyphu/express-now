@@ -1,7 +1,9 @@
-[![NPM version](https://img.shields.io/npm/v/express-now.svg)](https://www.npmjs.com/package/express-now)
 # express-now
+[![NPM version](https://img.shields.io/npm/v/express-now.svg)](https://www.npmjs.com/package/express-now)
 
-Get current status overview of an Express server.
+Get a quick current status overview of an Express server at a glance. 
+
+> This project was inspired by [`express-server-status`](https://github.com/OpenCollective/express-server-status), rewritten in TypeScript and 💙.
 
 ## Usage
 
