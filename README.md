@@ -33,9 +33,8 @@ app.use('/status', serverStatus(app));
 ```
 
 ```js
-// In CommonJS modules
+// Or use `require` for importing (CommonJS)
 const { serverStatus } = require('express-now');
-app.use('/status', serverStatus(app));
 ```
 
 ## License
