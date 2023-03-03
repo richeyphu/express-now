@@ -1,3 +1,9 @@
+/*!
+ * express-now
+ * Copyright(c) 2023 Phurit D.
+ * MIT Licensed
+ */
+
 import os from 'os';
 // import mongoose from "mongoose";
 import type { Express, Request, Response, NextFunction } from 'express';
