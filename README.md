@@ -32,6 +32,12 @@ import serverStatus from 'express-now';
 app.use('/status', serverStatus(app));
 ```
 
+```js
+// In CommonJS modules
+const { serverStatus } = require('express-now');
+app.use('/status', serverStatus(app));
+```
+
 ## License
 
 Licensed under the [MIT License](LICENSE).
