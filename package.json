@@ -18,8 +18,7 @@
     "clean:windows": "rmdir /s /q dist",
     "lint": "eslint src --ext .ts",
     "prettier": "prettier --write ./src/**/*.{ts,js,json,css,scss,md}",
-    "prepublish": "pnpm build",
-    "postpublish": ""
+    "prepublishOnly": "pnpm test && pnpm build"
   },
   "homepage": "https://github.com/richeyphu/express-now#readme",
   "repository": "github:richeyphu/express-now",
