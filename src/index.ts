@@ -6,7 +6,13 @@
 
 import os from 'os';
 // import mongoose from "mongoose";
-import type { Express, Request, Response, NextFunction } from 'express';
+import type {
+  Express,
+  Request,
+  Response,
+  NextFunction,
+  RequestHandler,
+} from 'express';
 import type {
   NodeInfo,
   RequestStats,
@@ -26,7 +32,14 @@ const uptime_start = new Date();
 // Every minute, we reset the oldest entry
 setInterval(() => resetCounter(requests_per_minute), 60 * 1000);
 
-const serverStatus = (app: Express) => {
+/**
+ * ### serverStatus
+ * Generates a middleware that returns the server status
+ *
+ * @param {Express} app - Express app instance
+ * @returns {RequestHandler} Express middleware
+ */
+const serverStatus = (app: Express): RequestHandler => {
   const server = { status: 'up' } as ServerInfo;
 
   try {

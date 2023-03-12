@@ -4,7 +4,14 @@
  * MIT Licensed
  */
 
-export const timeSince = (timeStamp: Date) => {
+/**
+ * ### timeSince
+ * Returns a human readable time since a given date
+ *
+ * @param {Date} timeStamp - Date object
+ * @returns {string} Human readable time in the format of "x unit ago"
+ */
+export const timeSince = (timeStamp: Date): string => {
   const now: Date = new Date();
   const secondsPast: number = (now.getTime() - timeStamp.getTime()) / 1000;
   const getTimeAgo = (time: number, unit: string): string => {
