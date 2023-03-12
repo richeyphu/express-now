@@ -107,5 +107,5 @@ const serverStatus = (app: Express) => {
   return response;
 };
 
-export { serverStatus };
+export { serverStatus, timeSince };
 export default serverStatus;
