@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest --config jest.config.json",
+    "test": "jest --config jest.config.json --coverage --forceExit",
     "dev": "tsnd --rs ./src/index.ts",
     "build": "pnpm bundle && pnpm declaration",
     "bundle": "pnpm bundle:cjs && pnpm bundle:esm",
@@ -18,7 +18,7 @@
     "clean:windows": "rmdir /s /q dist",
     "lint": "eslint src --ext .ts",
     "prettier": "prettier --write ./src/**/*.{ts,js,json,css,scss,md}",
-    "prepublishOnly": "pnpm test && pnpm build"
+    "prepublishOnly": "pnpm build && pnpm test"
   },
   "homepage": "https://github.com/richeyphu/express-now#readme",
   "repository": "github:richeyphu/express-now",
