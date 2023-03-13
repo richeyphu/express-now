@@ -8,32 +8,40 @@
  * ### timeSince
  * Returns a human readable time since a given date
  *
- * @param {Date} timeStamp - Date object
+ * @param {Date} timeStamp - A date object
  * @returns {string} Human readable time in the format of "x unit ago"
  */
 export const timeSince = (timeStamp: Date): string => {
+  const MINUTE = 60;
+  const HOUR = 60 * MINUTE;
+  const DAY = 24 * HOUR;
+  const WEEK = 7 * DAY;
+  const MONTH = 30 * DAY;
+  const YEAR = 365 * DAY;
   const now: Date = new Date();
   const secondsPast: number = (now.getTime() - timeStamp.getTime()) / 1000;
   const getTimeAgo = (time: number, unit: string): string => {
     return `${time} ${unit}${time > 1 ? 's' : ''} ago`;
   };
-  if (secondsPast < 60) {
+  if (secondsPast < MINUTE) {
     return getTimeAgo(Math.round(secondsPast), 'second');
   }
-  if (secondsPast < 3600) {
-    return getTimeAgo(Math.floor(secondsPast / 60), 'minute');
+  if (secondsPast < HOUR) {
+    return getTimeAgo(Math.floor(secondsPast / MINUTE), 'minute');
   }
-  if (secondsPast <= 86400) {
-    return getTimeAgo(Math.floor(secondsPast / 3600), 'hour');
+  if (secondsPast < DAY) {
+    return getTimeAgo(Math.floor(secondsPast / HOUR), 'hour');
   }
-  if (secondsPast <= 2628000) {
-    return getTimeAgo(Math.floor(secondsPast / 86400), 'day');
+  if (secondsPast < WEEK) {
+    return getTimeAgo(Math.floor(secondsPast / DAY), 'day');
   }
-  if (secondsPast <= 31536000) {
-    return getTimeAgo(Math.floor(secondsPast / 2628000), 'month');
+  if (secondsPast < MONTH) {
+    return getTimeAgo(Math.floor(secondsPast / WEEK), 'week');
   }
-  // if (secondsPast > 31536000)
-  return getTimeAgo(Math.floor(secondsPast / 31536000), 'year');
+  if (secondsPast < YEAR) {
+    return getTimeAgo(Math.floor(secondsPast / MONTH), 'month');
+  }
+  return getTimeAgo(Math.floor(secondsPast / YEAR), 'year');
 };
 
 export const sum = (arr: number[], from: number, length: number): number => {
