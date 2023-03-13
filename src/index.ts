@@ -42,6 +42,7 @@ setInterval(() => resetCounter(requests_per_minute), 60 * 1000);
 const serverStatus = (app: Express): RequestHandler => {
   const server = { status: 'up' } as ServerInfo;
 
+  // Get the package name and version
   try {
     server.name = process.env.npm_package_name ?? null;
     server.version = process.env.npm_package_version ?? null;
@@ -57,6 +58,7 @@ const serverStatus = (app: Express): RequestHandler => {
     return next();
   });
 
+  // Create a request handler to return the status
   const response = (
     req: RequestWithServerStatus,
     res: ResponseWithServerStatus,
@@ -83,7 +85,11 @@ const serverStatus = (app: Express): RequestHandler => {
       (new Date().getTime() - uptime_start.getTime()) / 1000
     );
     server.uptime_human = timeSince(uptime_start);
-    // server.env = env.NODE_ENV;
+
+    const nodeEnv = process.env.NODE_ENV;
+    nodeEnv && (server.env = nodeEnv ?? null);
+
+    // TODO: Add support for mongoose status
     // server.db_status = mongoose.STATES[
     //   mongoose.connection.readyState
     // ] as keyof typeof mongoose.STATES;
