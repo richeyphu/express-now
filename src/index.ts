@@ -23,6 +23,7 @@ import type {
   SystemInfo,
 } from './types';
 import { sum, average, resetCounter, timeSince } from './utils';
+import { env } from './config';
 
 const requests = { total: 0 } as RequestStats;
 const requests_per_minute: number[] = Array<number>(60).fill(0);
@@ -43,12 +44,8 @@ const serverStatus = (app: Express): RequestHandler => {
   const server = { status: 'up' } as ServerInfo;
 
   // Get the package name and version
-  try {
-    server.name = process.env.npm_package_name ?? null;
-    server.version = process.env.npm_package_version ?? null;
-  } catch (e) {
-    console.error('express-now> Error loading package.json', e);
-  }
+  server.name = env.SERVER_NAME;
+  server.version = env.SERVER_VERSION;
 
   // Create a middleware to count requests
   app.use((req: Request, res: Response, next: NextFunction): void => {
@@ -86,7 +83,7 @@ const serverStatus = (app: Express): RequestHandler => {
     );
     server.uptime_human = timeSince(uptime_start);
 
-    const nodeEnv = process.env.NODE_ENV;
+    const nodeEnv = env.NODE_ENV;
     nodeEnv && (server.env = nodeEnv ?? null);
 
     // TODO: Add support for mongoose status
