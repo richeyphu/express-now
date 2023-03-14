@@ -10,6 +10,14 @@
  *
  * @param {Date} timeStamp - A date object
  * @returns {string} Human readable time in the format of "x unit ago"
+ * 
+ * @example
+ * Here's an example of using the function:
+ * ```js
+ * const dateNow = new Date();
+ * const dateAgo = new Date(dateNow.getTime() - 5000);
+ * console.log(timeSince(dateAgo)); // 5 seconds ago
+ * ```
  */
 export const timeSince = (timeStamp: Date): string => {
   const MINUTE = 60;

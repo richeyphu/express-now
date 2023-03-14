@@ -39,6 +39,14 @@ setInterval(() => resetCounter(requests_per_minute), 60 * 1000);
  *
  * @param {Express} app - Express app instance
  * @returns {RequestHandler} Express middleware
+ *
+ * @example
+ * Here's an example of using the middleware
+ * to return the server status to route `/status`:
+ * ```js
+ * const app = express(); // Express app instance
+ * app.use('/status', serverStatus(app)); // Mount the middleware
+ * ```
  */
 const serverStatus = (app: Express): RequestHandler => {
   const server = { status: 'up' } as ServerInfo;
