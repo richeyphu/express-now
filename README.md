@@ -28,7 +28,7 @@ const app = express();
 // Import the middleware
 import serverStatus from 'express-now';
 
-// Use this middleware before other routes
+// Use this middleware before any other routes
 app.use('/status', serverStatus(app));
 ```
 
