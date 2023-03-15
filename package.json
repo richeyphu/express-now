@@ -8,11 +8,12 @@
   "scripts": {
     "test": "jest --config jest.config.json --coverage --forceExit",
     "dev": "tsnd --rs ./src/index.ts",
+    "dev:test": "tsnd --rs ./tests/_app.ts",
     "build": "pnpm bundle && pnpm declaration",
     "bundle": "pnpm bundle:cjs && pnpm bundle:esm",
     "bundle:cjs": "esbuild src/index.ts --bundle --target=esnext --format=cjs --outfile=dist/index.js --platform=node",
     "bundle:esm": "esbuild src/index.ts --bundle --target=esnext --format=esm --outfile=dist/index.mjs --platform=node",
-    "declaration": "tsc --project tsconfig.json",
+    "declaration": "tsc --project tsconfig.build.json",
     "clean": "pnpm clean:linux || pnpm clean:windows",
     "clean:linux": "rm -rf dist",
     "clean:windows": "rmdir /s /q dist",
